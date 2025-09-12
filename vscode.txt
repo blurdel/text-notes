@@ -1,0 +1,20 @@
+# VS Code
+
+# vscode as merge-tool
+git config --global merge.tool vscode
+git config --global mergetool.vscode.cmd 'code --wait --merge $LOCAL $REMOTE $BASE $MERGED'
+
+  
+workbench.editor.enablePreview
+"editor.fontSize": 14,
+"window.zoomLevel": 1
+
+
+# Disable linters
+{
+    "vs-kubernetes": {
+        "disable-linters": ["resource-limits"],
+        ...
+    },
+    ...
+}
