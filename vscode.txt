@@ -12,10 +12,10 @@ workbench.editor.enablePreview
 
 $HOME/.config/Code/User/settings.json
 # Disable linters
-{
-    "vs-kubernetes": {
-        "disable-linters": ["resource-limits"],
-        ...
-    },
-    ...
+"vs-kubernetes.disable-linters": [
+  "resource-limits"
+],
+
+"vs-kubernetes": {
+  "disable-linters": ["resource-limits"],
 }
