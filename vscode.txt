@@ -10,6 +10,7 @@ workbench.editor.enablePreview
 "window.zoomLevel": 1
 
 
+$HOME/.config/Code/User/settings.json
 # Disable linters
 {
     "vs-kubernetes": {
