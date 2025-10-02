@@ -1,0 +1,23 @@
+
+$ = BOL
+^ = EOL
+U = undo
+
+gg = BOF
+G  = EOF
+
+/ = find
+  n next
+  p previous
+: = line number
+* = highlight all
+:nohl
+
+vimdiff -O <(git show origin/branch:full-path-to-file) <(git show origin/branch:full-path-to-file)
+Ctrl-w l :move to center window
+Ctrl-w j :move center window to bottom
+:diffoff :turns diff off on bottom window
+
+:set diffopt+=white,algorithm:patience
+
+:set paste

@@ -1,0 +1,42 @@
+
+# C++ dev env
+sudo apt-get install openssh-server g++ gdb gdbserver
+sudo apt-get install build-essential libgl1-mesa-dev
+
+ps -aux
+
+journalctl --unit bluetooth --follow
+
+cat /etc/os-release
+
+sudo apt-get clean
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt autoremove
+
+
+apt-get update --allow-releaseinfo-change
+apt-get update
+apt-get install [--reinstall] packagename
+
+sudo apt-get install
+	gnome-tweak-tool
+
+
+gsettings set org.gnome.desktop.background picture-uri ""
+gsettings set org.gnome.desktop.background primary-color '#4C4A48'
+
+
+rpm -qa | grep openjdk | xargs yum -y remove
+
+
+dpkg --list
+sudo apt autoremove --purge
+dpkg -l | grep '^rc' | awk '{print $2}' | sudo xargs dpkg --purge
+
+
+sudo apt-get remove --auto-remove qtchooser
+sudo apt-get purge --auto-remove qtchooser
+
+
+rpm -e <rpm> --no-deps --no-scripts

@@ -1,0 +1,30 @@
+# Create key
+ssh-keygen -t rsa -b 4096
+cd ~/.ssh
+cat id_rsa.pub >> authorized_keys
+cd ..
+chmod 700 .ssh
+cd ..
+chmod 755 homedir
+
+
+# key copy to remote
+ssh-copy-id user@host
+
+
+ssh user@host
+
+# Remove the old key
+ssh-keygen -R github.com
+
+
+# Get
+scp user@host:/path/file ~/temp
+
+# Put
+scp file user@host:/path/file
+
+
+# show certs
+openssl s_client -showcerts blog.wittcode.com:443
+

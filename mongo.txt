@@ -1,3 +1,7 @@
 
 mongodb://localhost:27017/?readPreference=primary&ssl=false&directConnection=true
 
+
+
+mongodb://mongouser:mongopassword@localhost:27017/
+mongodb://mongouser:mongopassword@localhost:27017/<dbname>?authSource=admin
