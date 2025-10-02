@@ -1,0 +1,35 @@
+
+maven-archetype-quickstart
+
+
+Maven Lifecycle
+The default lifecycle comprises of the following phases
+
+validate - validate the project is correct and all necessary information is available
+compile  - compile the source code of the project
+test     - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+package  - take the compiled code and package it in its distributable format, such as a JAR.
+verify   - run any checks on results of integration tests to ensure quality criteria are met
+install  - install the package into the local repository, for use as a dependency in other projects locally
+deploy   - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+mvn test -Dtest=ClassName#testName
+
+mvn clean package -DskipTests
+
+mvn exec:java -Dexec.mainClass="com.blurdel.Main"
+
+
+mvn spring-boot:run 
+
+mvn spring-boot:run -Dspring-boot.run.profiles=local
+                    -Dspring.profiles.active=local
+
+
+http://74.198.237.14:9191/admin/ACEmanagerX.html
+
+
+
+# check the dependency tree using command:
+mvn dependency:tree -Dincludes=org.codehaus.groovy

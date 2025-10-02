@@ -1,0 +1,11 @@
+
+
+firewall-cmd --set-default-zone public
+firewall-cmd --reload
+reboot
+
+
+firewall-cmd --permanent --add-port=8444/tcp
+firewall-cmd --permanent --add-port=5000/tcp
+firewall-cmd --reload
+

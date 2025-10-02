@@ -1,0 +1,10 @@
+
+# desktop icons
+update-desktop-database ~/.local/share/applications/
+
+Then right click App in start menu to add it to Dash
+
+----------
+
+# Add AppImages to ~/applications
+chmod +x AppImage

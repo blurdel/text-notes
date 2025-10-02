@@ -1,0 +1,19 @@
+#
+microk8s get started
+
+sudo snap install microk8s --classic
+microk8s install
+
+microk8s status --wait-ready
+
+
+cd
+mkdir .kube
+cd .kube
+microk8s config > config
+# Reboot
+
+kk get all --all-namespaces
+
+microk8s dashboard-proxy
+

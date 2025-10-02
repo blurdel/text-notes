@@ -1,0 +1,13 @@
+
+# Create a new project
+npx create-react-app react-starter
+
+npm start
+npm test
+npm run build
+
+
+# update lock file
+npm i --package-lock-only
+
+
