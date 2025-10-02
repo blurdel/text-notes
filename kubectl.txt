@@ -1,0 +1,58 @@
+
+alias kk=kubectl
+
+# Contexts
+kk config get-contexts
+kk config set-context --current --namespace=<ns>
+kk config set-context --current --namespace=username-dev
+
+kk get namespaces --show-labels
+
+# Pods
+kk get pods [-l app=mysql]
+kk describe pod <name>
+kk get <pod> -o wide  # See IP address endpoints of service
+
+# View logs
+kk logs [-n ns] <pod> [-c container]
+kk logs <pod>  [--previous]
+
+kk get pod|service|node
+kk describe pod|service|node <name>
+
+# Attach to running pod
+kk exec -it [-n ns] <pod> -- <cmd>
+
+# Start container
+kk run -it --rm --image=mysql:8.4.0 --restart=Never mysql-client -- /bin/sh
+
+# Write deployment yaml
+kk get deployment <name> -o yaml > file.yaml
+
+kk get secret <secret> -o jsonpath={".data.path"} | base64 -d
+
+kk -n <NAMESPACE> get pods <POD_NAME> -o jsonpath="{..image}"
+kk logs pod/xxxx --all-containers
+
+
+# Port forwarding
+kk port-forward <pod-name> src-port:dest-port
+
+
+kk get cronjob
+kk delete cronjob hello
+
+# delete everything
+kk delete all --all
+
+# delete stuff
+kk delete replicasets,deployments,jobs,services,pods,configmaps,secrets --all
+
+# nslookup will fail if firewall is enabled on the host
+nslookup mysql 
+
+
+# Add Rancher
+KUBECONFIG=$HOME/.kube/config:$HOME/.rancher-desktop/lima/_default/kubeconfig.yaml kubectl config view --flatten > /tmp/config-merged
+mv /tmp/config-merged ~/.kube/config
+
