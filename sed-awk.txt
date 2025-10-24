@@ -1,0 +1,4 @@
+
+
+echo "$URL" | awk -F/ '{ print $1 "//"$3 }'
+echo "$URL" | awk -F/ '{ for (i=0; i<=NF; i++) print $i }'
