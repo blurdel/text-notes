@@ -5,8 +5,9 @@ sed -i.bak 's/\r$//g' <file>
 sudo apt list --installed | grep uuid
 
 ss -tunlp | grep <port>
-
 nslookup <server>
+
+lscpu
 
 get pid
 cat /proc/<pid>/cgroup
