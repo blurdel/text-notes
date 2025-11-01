@@ -1,0 +1,22 @@
+
+sudo apt list --installed | grep uuid
+
+ss -tunlp | grep <port>
+
+get pid
+cat /proc/<pid>/cgroup
+
+rpm -ql <package>
+rpm -qa | grep openjdk | xargs  yum -y remove
+
+yum group list
+yum groupinstall "Server with GUI" | "Development Tools"
+
+yum-config-manager --enablerepo=<repo>
+yum clean all && yum makecache && yum update
+
+
+# selinux
+sudo setenforce 0
+getenforce
+/etc/selinux/config
