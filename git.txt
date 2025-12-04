@@ -1,3 +1,72 @@
 
+curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5'
+
+# Bundle
+git bundle create <name>.bundle <branch>
+git bundle verify <name>.bundle
+-
+git clone -b <branch> <name>.bundle <target-dir>
+git push -u origin <branch>
+git bundle list-heads
+
 
 git config --global credential.helper store
+
+git commit --amend --reset-author
+
+git remote prune origin
+
+# clean all untracked files
+git clean -fxd
+
+git log --all --oneline --author="name"
+git log --oneline | grep 4e2dacc
+
+
+# Only add modified
+git add -u
+# git ls-files --modified | xargs git add
+
+# un-stage
+Git reset --hard HEAD
+Git reset HEAD~1 file
+
+git fetch origin
+git status
+git merge --ff-only origin/mybranch
+
+# remove from ...
+git rm --cached file
+
+# To track remote
+git branch -u origin/master
+
+# Push to a branch with a matching tag
+git push origin refs/heads/<branch-name>
+
+git merge -X theirs develop [--no-commit]
+
+# Let git resolve merge conflicts
+# This will take "theirs" updates when there is a conflict
+git merge --squash <functional br> --strategy-recursive -X theirs --no-commit
+
+
+git rebase -i origin/branch
+
+git rebase -i HEAD~2
+
+git merge --log origin/...  --strategy=recursive -Xours
+
+
+# Diff
+git diff dev-branch master -- myfile.txt
+
+git diff sha~ sha
+
+git diff --name-status origin/br..origin/other
+
+git log origin/br..origin/other
+
+
+# To find reviewers
+git shortlog -s -n --no-merges -- file

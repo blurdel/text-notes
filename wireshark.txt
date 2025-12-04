@@ -1,0 +1,46 @@
+
+
+ip.addr == 10.1.1.61
+ip.src
+ip.dst
+
+dns or http
+
+tcp.port == 9000
+
+vnc && ip.dst = 192.168.0.11
+
+# show problems
+tcp.analysis.flags
+
+# prune these
+!(arp or dns or imcp)
+
+# follow a TCP conversation
+right click a packet -> follow TCP stream
+
+tcp/udp contains facebook
+
+http.request
+http.response.code == 200
+
+# server attack?
+tcp.flags.syn == 1
+# tcp resets
+tcp.flags.reset == 1
+
+VOIP
+sip && rtp
+
+frame contains "SHORTNAME"
+
+frame matches "user"
+
+# case-insensative match
+frame matches "(?i)user"
+
+frame matches "(?i)User[s]"
+
+
+
+frame matches "(?i)(username|password)"
