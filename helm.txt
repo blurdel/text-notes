@@ -1,14 +1,25 @@
 
-helm repo list
+helm env
+
+# Repos
+helm repo ls
+helm repo update
 helm repo add <REPOSITORY_NAME> <REPOSITORY_URL>
 helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo remove <repo>
 
 helm search repo bitnami
 
+helm show chart <repo>/<chart>
+helm show values <repo>/<chart>
+
+
 # Show all installs
 helm list -a
+helm ls [-n ]
 
-helm create <chart>
+# Create a chart
+helm create <chart-name>
 
 helm install <release> <chart>
 helm install <release> --debug --dry-run <chart>
@@ -16,13 +27,14 @@ helm uninstall <release>
 
 helm get manifest <release>
 
+helm history <release>
 helm diff revision <chart> <rev1> <rev2>
-helm upgrade <release> <chart>
-helm rollback <release> <revision>
+helm upgrade <release> <chart> [--version ] [-n ]
+helm rollback <release> [revision]
 
 # Checks
 helm lint <chart>
-helm template <chart>
+helm template <release> <chart>
 helm template <release> <chart> -f path/to/values.yaml
 - or
 helm template --replace <chart> --values path/to/values.yaml
