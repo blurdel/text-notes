@@ -1,6 +1,9 @@
 
 alias kk=kubectl
 
+kk cluster-info
+kk api-resources [-n kube-system]
+
 # Contexts
 kk config get-contexts
 kk config set-context --current --namespace=<ns>
