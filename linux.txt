@@ -1,13 +1,29 @@
 
+ps -aux
+
+du -hd 1
+
+lscpu
 
 sed -i.bak 's/\r$//g' <file>
 
+find . -type f -exec ls -l {} \;
+
 sudo apt list --installed | grep uuid
+
+sudo systemctl start|stop|restart  NetworkManager
 
 ss -tunlp | grep <port>
 nslookup <server>
 
-lscpu
+ifconfig | grep inet | grep -v inet6 | awk '{print $2}' | head -1
+
+echo -n tmuser | base64
+
+nm -D --defined-only /lib/libtest.so
+
+last
+last reboot
 
 get pid
 cat /proc/<pid>/cgroup
@@ -26,3 +42,11 @@ yum clean all && yum makecache && yum update
 sudo setenforce 0
 getenforce
 /etc/selinux/config
+
+
+# BIOS check
+sudo dmidecode -s bios-version
+
+# Screenshot
+export DIPSLAY
+import -window root image.png
