@@ -1,0 +1,53 @@
+
+https://argo-cd.readthedocs.io/en/stable/getting_started/
+
+
+kubectl create namespace argocd
+
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# loony-argocd-public-repo
+
+---
+# CLI install 
+# https://argo-cd.readthedocs.io/en/stable/cli_installation
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+
+argocd version
+# Need to set LoadBalancer
+{"level":"fatal","msg":"Argo CD server address unspecified","time":"2025-12-16T16:47:53-07:00"}
+argocd version --client
+
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+---
+
+kubectl port-forward svc/nginx-service -n default 8081:80
+
+---
+
+# Update admin password
+argocd admin initial-password -n argocd
+argocd login localhost:8080
+argocd account update-password
+
+---
+
+# useful cmd lines
+argocd login localhost:8080 --username admin --password 'pw' --insecure
+argocd repo list
+argocd app list
+
+# Add a repo
+argocd repo add <git-url> --server localhost:8080 --type git --name <repo name> --insecure-skip-server-verification
+
+---
+
+kubectl scale deploy nginx-deployment --replicas 3
+
+# Misc
+kubectl run -it --rm dns-test --image=busybox --restart=Never -- nslookup github.com

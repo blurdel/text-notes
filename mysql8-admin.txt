@@ -1,0 +1,20 @@
+
+ALTER USER 'root'@'%' IDENTIFIED WITH caching_sha2_password BY 'your_root_password';
+FLUSH PRIVILEGES;
+
+
+CREATE USER IF NOT EXISTS `someuser`@`%` IDENTIFIED BY 'password';
+GRANT ALL ON *.* TO 'someuser'@'%';
+
+
+-- Global Privileges
+GRANT ALL ON *.* TO 'someuser'@'somehost';
+GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON *.* TO 'someuser'@'somehost';
+
+-- Database Privileges
+GRANT ALL ON mydb.* TO 'someuser'@'somehost';
+GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON mydb.* TO 'someuser'@'somehost';
+
+-- Table Privileges
+GRANT ALL ON mydb.mytbl TO 'someuser'@'somehost';
+GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON mydb.mytbl TO 'someuser'@'somehost';
