@@ -1,0 +1,9 @@
+
+curl -O http://example.com
+
+curl http://localhost:8080/v1/health
+
+
+curl -X POST  -H "Content-Type: application/json"  -d '{"name":"me", "age":28, "address":"Apt 2001"}  http://localhost:8080/user/'
+
+curl -X POST  --header "Content-Type: application/json"  -d '{"question":"create an image of a black labrador retriever in a fall lake retrieving a duck."}'  http://localhost:8080/image >> image.png
