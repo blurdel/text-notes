@@ -6,4 +6,8 @@ curl http://localhost:8080/v1/health
 
 curl -X POST  -H "Content-Type: application/json"  -d '{"name":"me", "age":28, "address":"Apt 2001"}  http://localhost:8080/user/'
 
+# AI create an image
 curl -X POST  --header "Content-Type: application/json"  -d '{"question":"create an image of a black labrador retriever in a fall lake retrieving a duck."}'  http://localhost:8080/image >> image.png
+
+# word of the day
+curl -o - --silent  https://www.merriam-webster.com/word-of-the-day  2>&1 | awk ' $0 ~ "Word of the Day: [A-z]+" { print $5; exit }'
