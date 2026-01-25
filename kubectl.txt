@@ -54,6 +54,8 @@ kk delete replicasets,deployments,jobs,services,pods,configmaps,secrets --all
 # nslookup will fail if firewall is enabled on the host
 nslookup mysql 
 
+kubectl run -it --rm dns-test --image=busybox --restart=Never -- nslookup github.com
+
 
 # Add Rancher
 KUBECONFIG=$HOME/.kube/config:$HOME/.rancher-desktop/lima/_default/kubeconfig.yaml kubectl config view --flatten > /tmp/config-merged
