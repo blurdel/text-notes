@@ -8,6 +8,7 @@ lscpu
 sed -i.bak 's/\r$//g' <file>
 
 find . -type f -exec ls -l {} \;
+find /tmp -ctime +10 -exec rm -rf {} +
 
 sudo apt list --installed | grep uuid
 
@@ -43,6 +44,9 @@ sudo setenforce 0
 getenforce
 /etc/selinux/config
 
+# check/set password never expires
+chage -l <username>
+sudo chage -M 1 <username>
 
 # BIOS check
 sudo dmidecode -s bios-version
