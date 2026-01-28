@@ -9,6 +9,7 @@ kk config get-contexts
 kk config set-context --current --namespace=<ns>
 kk config set-context --current --namespace=username-dev
 
+kk label node <node> nodeId= nodeName= nodeType= --overwrite
 kk get namespaces --show-labels
 
 # Pods
