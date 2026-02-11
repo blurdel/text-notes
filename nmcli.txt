@@ -1,0 +1,11 @@
+# nmcli use case examples
+
+nmcli conn
+
+nmcli con add type ethernet ifname <name> con-name <name> ipv4.method auto
+
+# Can change connections
+ifconfig <old-name> down
+ip link set <old-name> name <new-name>
+ifconfig <new-name> up
+ifup <new-name>
