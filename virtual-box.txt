@@ -1,0 +1,24 @@
+
+
+sudo apt --fix-broken  install ./virtualbox-7.1_7.1.10-169112~Ubuntu~noble_amd64.deb 
+sudo apt update
+sudo apt list --upgradable
+sudo apt update
+sudo apt upgrade
+sudo apt  install --reinstall  ./virtualbox-7.1_7.1.10-169112~Ubuntu~noble_amd64.deb 
+
+
+
+
+# Virtual Box
+lsmod | grep kvm
+
+sudo modprobe -r kvm_intel
+sudo modprobe -r kvm_amd
+sudo modprobe -r kvm
+
+echo "blacklist kvm" | sudo tee /etc/modprobe.d/blacklist-kvm.conf
+echo "blacklist kvm_intel" | sudo tee -a /etc/modprobe.d/blacklist-kvm.conf
+echo "blacklist kvm_amd" | sudo tee -a /etc/modprobe.d/blacklist-kvm.conf
+
+sudo update-initramfs -u
