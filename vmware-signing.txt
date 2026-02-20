@@ -3,6 +3,11 @@
 # Starting VMWare shows "Could Not Open /dev/vmmon"
 # Fix VMware Could Not Open /dev/vmmon on Linux
 
+VMware signing
+https://www.youtube.com/watch?v=EZKn-aDbAgM
+
+https://www.lucaswilliams.net/index.php/2025/11/25/building-the-vmware-workstation-modules-on-ubuntu-24-04-with-secure-boot-enabled/
+
 
 sudo vmware-modconfig --console --install-all
 
