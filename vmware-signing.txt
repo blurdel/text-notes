@@ -1,0 +1,59 @@
+
+
+# Starting VMWare shows "Could Not Open /dev/vmmon"
+# Fix VMware Could Not Open /dev/vmmon on Linux
+
+
+sudo vmware-modconfig --console --install-all
+
+sudo apt update
+sudo apt upgrade
+
+supo apt install build-essential linux-headers-$(uname -r)
+
+sudo vmware-modconfig --console --install-all
+ls /lib/modules/$(uname -r)/misc/
+# Should see vmmon.ko vmnet.ko
+
+mokutil --sb-state
+lsmod | grep vmmon
+sudo modprobe vmmon
+
+sudo apt install mokutil openssl
+
+mkdir -p ~/vmware-signing
+
+openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=VMWare Module Signing/"
+# May need to move keys into ~/vmware-signing
+
+sudo mokutil --import MOK.der
+# Remember password for next boot
+# Reboot
+# Enroll MOK
+# Enter password
+# Continue Boot
+
+modinfo -n vmmon
+# take note of full path
+->/lib/modules/6.17.0-1011-oem/misc/vmmon.ko
+
+modinfo -n vmnet
+# take note of full path
+->/lib/modules/6.17.0-1011-oem/misc/vmnet.ko
+
+
+# Note: Path at end may vary
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ~/vmware-signing/MOK.priv ~/vmware-signing/MOK.der /lib/modules/$(uname -r)/misc/vmmon.ko
+
+# Note: Path at end may vary
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ~/vmware-signing/MOK.priv ~/vmware-signing/MOK.der /lib/modules/$(uname -r)/misc/vmnet.ko
+
+sudo modprobe -r vmmon vmnet
+sudo modprobe vmmon
+sudo modprobe vmnet
+
+lsmod | grep vmmon
+lsmod | grep vmnet
+# outputs mean they are signed
+
+# Can start vm now
