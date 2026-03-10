@@ -30,6 +30,7 @@ helm get manifest <release>
 helm history <release>
 helm diff revision <chart> <rev1> <rev2>
 helm upgrade <release> <chart> [--version ] [-n ]
+* helm upgrade --install <release> <chart> [-n ]
 helm rollback <release> [revision]
 
 # Checks
