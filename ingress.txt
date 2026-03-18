@@ -4,3 +4,8 @@
 # Test an ingress
 curl -v http://<ingress-address> -H "Host: <end-point>"
 curl -v http://172.16.33.131 -H "Host: hello.local"
+
+# Or test the service
+kubectl port-forward svc/jenkins-hello-world-hello1 -n hello 8080:8080
+browse to: http://localhost:8080
+
