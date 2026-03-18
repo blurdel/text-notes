@@ -1,0 +1,6 @@
+
+
+
+# Test an ingress
+curl -v http://<ingress-address> -H "Host: <end-point>"
+curl -v http://172.16.33.131 -H "Host: hello.local"
