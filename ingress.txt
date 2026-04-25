@@ -1,4 +1,8 @@
 ---
+kubectl create ns ingress-nginx
+helm install ingress-nginx  ingress-nginx/ingress-nginx --namespace ingress-nginx
+
+---
 # Test an ingress, get the ingress address
 kubectl get ingress -n <namespace>
 
