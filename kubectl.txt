@@ -1,6 +1,9 @@
 
 alias kk=kubectl
 
+kubectl get events --sort-by=.lastTimestamp
+
+
 kk cluster-info
 kk api-resources [-n kube-system]
 
