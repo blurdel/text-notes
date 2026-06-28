@@ -11,3 +11,6 @@ curl -X POST  --header "Content-Type: application/json"  -d '{"question":"create
 
 # word of the day
 curl -o - --silent  https://www.merriam-webster.com/word-of-the-day  2>&1 | awk ' $0 ~ "Word of the Day: [A-z]+" { print $5; exit }'
+
+# rke2 releases
+curl -sfL https://api.github.com/repos/rancher/rke2/releases | grep tag_name | head
