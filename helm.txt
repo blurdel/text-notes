@@ -8,7 +8,10 @@ helm repo add <REPOSITORY_NAME> <REPOSITORY_URL>
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo remove <repo>
 
-helm search repo bitnami
+helm search repo bitnami [-l]
+
+helm search repo influxdata/influxdb2 -l
+helm pull influxdata/influxdb2 --version <chart-version>
 
 helm show chart <repo>/<chart>
 helm show values <repo>/<chart>
