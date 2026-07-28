@@ -8,3 +8,8 @@ http://localhost:5000/v2/_catalog
 
 # List tags for a repo
 http://localhost:5000/v2/<repo>/tags/list
+
+---
+
+docker save image1:tag1 [image2:tag2] | gzip >  myimages.tar.gz
+docker load < myimages.tar.gz
