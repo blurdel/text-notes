@@ -44,6 +44,10 @@ helm template <release> <chart> -f path/to/values.yaml
 helm template --replace <chart> --values path/to/values.yaml
 
 
+# To inspect values
+# {{ fail (toJson .Values.livenessProbe) }}
+
+
 helm dependency update <dir>
 helm package <dir>
 helm push-artifactory <chart> <repo>
