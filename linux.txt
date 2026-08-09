@@ -19,6 +19,9 @@ nslookup <server>
 
 ifconfig | grep inet | grep -v inet6 | awk '{print $2}' | head -1
 
+# open files
+echo exit | strace bash -li |& grep '^open'
+
 echo -n tmuser | base64
 
 nm -D --defined-only /lib/libtest.so
@@ -52,5 +55,5 @@ sudo chage -M 1 <username>
 sudo dmidecode -s bios-version
 
 # Screenshot
-export DIPSLAY
+export DISPLAY
 import -window root image.png
