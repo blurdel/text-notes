@@ -17,3 +17,7 @@ kubectl port-forward svc/jenkins-hello-world-hello1 -n hello 8080:8080
 browse to: http://localhost:8080
 
 ---
+
+kubectl -n argocd run curl-test --rm -it --image=curlimages/curl -- curl -vk https://argocd-server:443/
+
+---
