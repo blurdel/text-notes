@@ -14,3 +14,6 @@ curl -o - --silent  https://www.merriam-webster.com/word-of-the-day  2>&1 | awk 
 
 # rke2 releases
 curl -sfL https://api.github.com/repos/rancher/rke2/releases | grep tag_name | head
+
+# Test an ingress
+curl -vk https://127.0.0.1/ -H 'Host: argocd.local'
