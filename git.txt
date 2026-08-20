@@ -10,6 +10,9 @@ git push -u origin <branch>
 git bundle list-heads
 
 
+git branch --set-upstream-to=origin/main
+
+
 git config --global credential.helper store
 
 git commit --amend --reset-author
