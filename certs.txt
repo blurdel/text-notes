@@ -1,0 +1,10 @@
+
+
+openssl s_client -connect rke2-node1:443 -servername hello.local </dev/null 2>/dev/null | openssl x509 -noout -issuer -subject
+issuer=
+subject=
+
+
+openssl s_client -connect rke2-node1:443 -servername hello.local
+  
+openssl s_client -connect rke2-node1:443 -servername hello.local </dev/null 2>/dev/null | openssl x509 -text -noout
