@@ -61,7 +61,6 @@ nslookup mysql
 kubectl run -it --rm dns-test --image=busybox --restart=Never -- nslookup github.com
 
 
-# Add Rancher
-KUBECONFIG=$HOME/.kube/config:$HOME/.rancher-desktop/lima/_default/kubeconfig.yaml kubectl config view --flatten > /tmp/config-merged
-mv /tmp/config-merged ~/.kube/config
+# MySQL
+kubectl exec -n mysql -it deployment/mysql840-mysql -- mysqladmin ping -h mysql-service -u root -p
 
