@@ -14,6 +14,11 @@ install  - install the package into the local repository, for use as a dependenc
 deploy   - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
 
 
+
+# Static asset changes don't always auto-sync to your running app. Rebuild target resources in IntelliJ or run:
+mvn process-resources
+
+
 mvn test -Dtest=ClassName#testName
 
 mvn clean package -DskipTests
