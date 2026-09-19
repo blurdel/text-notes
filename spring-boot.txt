@@ -1,0 +1,22 @@
+
+# <service-name>.<namespace>.svc.cluster.local
+- name: SPRING_DATASOURCE_URL
+  value: "jdbc:mysql://mysql-service.mysql.svc.cluster.local:3306/SPRING?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+
+
+# List layers
+java -Djarmode=tools -jar target/sunland-valley-*.jar list-layers
+dependencies
+spring-boot-loader
+snapshot-dependencies
+application
+
+docker run --rm -it --entrypoint sh localhost:5000/sunland-valley:1.0.0
+# ls
+BOOT-INF  META-INF  org
+# ls BOOT-INF
+classes  classpath.idx	layers.idx  lib
+# ls META-INF
+MANIFEST.MF  maven  services
+# ls org
+springframework
