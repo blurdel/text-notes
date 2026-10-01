@@ -14,9 +14,12 @@ install  - install the package into the local repository, for use as a dependenc
 deploy   - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
 
 
-
 # Static asset changes don't always auto-sync to your running app. Rebuild target resources in IntelliJ or run:
 mvn process-resources
+
+
+# Set all sub-module versions
+mvn versions:set -DnewVersion=1.2.0-SNAPSHOT
 
 
 mvn test -Dtest=ClassName#testName
@@ -26,7 +29,7 @@ mvn clean package -DskipTests
 mvn exec:java -Dexec.mainClass="com.blurdel.Main"
 
 
-mvn spring-boot:run 
+mvn spring-boot:run
 
 mvn spring-boot:run -Dspring-boot.run.profiles=local
                     -Dspring.profiles.active=local
