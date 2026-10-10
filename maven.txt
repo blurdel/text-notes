@@ -21,6 +21,10 @@ mvn process-resources
 # Set all sub-module versions
 mvn versions:set -DnewVersion=1.2.0-SNAPSHOT
 
+mvn dependency:tree [-Dincludes=[groupId]:[artifactId]]
+mvn dependency:tree [-Dincludes=com.blurdel.app:lib]
+mvn dependency:tree [-Dincludes=com.blurdel.*]
+
 
 mvn test -Dtest=ClassName#testName
 
