@@ -1,4 +1,16 @@
 
+spring.application.name=my-app
+
+---
+# Set an active profile
+spring.profiles.active=mongo
+
+# command line
+export SPRING_PROFILES_ACTIVE=mongo
+or
+java -Dspring.profiles.active=mongo -jar ./target/mongo-app.jar
+
+---
 # Spring over-rides in yaml
 To override
 security.oauth2.resourceserver.jwt.issuer-uri
@@ -6,5 +18,5 @@ define:
 SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI.
 
 Replace dots with underscore. Remove the dashes if a part of the property consist of multiple words (here issuer-uri).
----
 
+---
